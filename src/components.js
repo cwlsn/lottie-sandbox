@@ -87,6 +87,7 @@ export const ControlButton = styled.button`
   font-size: 14px;
   font-weight: bold;
   margin: ${gridValue(1)} ${gridValue(1)} 0 0;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
 `;
 
