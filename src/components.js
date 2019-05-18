@@ -20,6 +20,16 @@ export const Sidebar = styled.aside`
   display: flex;
   flex-flow: column;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+`;
+
+export const SidebarInner = styled.div`
+  position: absolute;
+  top: 0;
+  right: -15px;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
 `;
 
 export const Heading = styled.h1`
@@ -28,9 +38,11 @@ export const Heading = styled.h1`
   text-transform: uppercase;
   font-weight: bold;
   color: ${p => p.theme.colors.brand};
+  background: rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: ${p => gridValue(2, p.theme.grid)};
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
 `;
 
 export const AnimationContainer = styled.section`
@@ -46,6 +58,23 @@ export const AnimationContainer = styled.section`
 
 export const SidebarSection = styled.div`
   padding: ${gridValue(2)};
+  box-sizing: border-box;
+
+  & > ul {
+    font-family: ${p => p.theme.fonts.copy};
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: ${p => p.theme.borderRadius};
+    padding: ${gridValue(1)} !important;
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const BottomFixedSidebarSection = styled(SidebarSection)`
+  position: fixed;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.4);
+  width: ${p => p.theme.sidebar.width};
+  background: #1b202e;
+  bottom: 0;
 `;
 
 export const SidebarLabel = styled.h3`
@@ -58,19 +87,9 @@ export const SidebarLabel = styled.h3`
   font-size: 16px;
 `;
 
-export const DataInput = styled.textarea`
-  width: 100%;
-  border: 1px solid ${p => p.theme.sidebar.border};
-  border-radius: ${p => p.theme.borderRadius};
-  font-size: 14px;
-  padding: ${gridValue(1)};
-  height: 160px;
-  font-family: ${p => p.theme.fonts.copy};
-  overflow: hidden;
-  box-sizing: border-box;
-  resize: none;
-  margin: ${gridValue(1)} 0 0 0;
-  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.2);
+export const RowContainer = styled.div`
+  display: flex;
+  flex-flow: row;
 `;
 
 export const ControlButton = styled.button`
@@ -89,6 +108,22 @@ export const ControlButton = styled.button`
   margin: ${gridValue(1)} ${gridValue(1)} 0 0;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+`;
+
+export const PlayPauseButton = styled(ControlButton)`
+  padding: ${gridValue(1)};
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > small {
+    font-size: 24px;
+    margin: 0 ${gridValue(1)};
+  }
 `;
 
 export const UrlInput = styled.input`
